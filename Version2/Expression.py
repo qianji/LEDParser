@@ -48,7 +48,7 @@ class AST:
         return []
     # convert AST class to a string
     def __str__(self):
-        return str(self.expression)
+        return str(self.expression())
     # convert the class AST to an Expression
     # example, if t is the AST of x^2 then t.expression() = ('^',['x',2])
     def expression(self):
