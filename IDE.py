@@ -55,7 +55,7 @@ def run(F=''):
                     # turn off the type checking
                     if expression[0]=='TCoff' and expression[1]=='(' and expression[-1]==')':
                         TypeChecking.off()
-                        print("Type checking is turned off")                        
+                        print("Type checking is turned off")
                         continue
                 if len(expression)>3:
                     if expression[0]=='run' and expression[1]=='(' and expression[-1]==')':
@@ -73,7 +73,7 @@ def run(F=''):
                         elapsed = timeit.default_timer() - start_time
                         #print("Evaluating time",elapsed)
                         if not value ==None:
-                            start_time = timeit.default_timer()                            
+                            start_time = timeit.default_timer()
                             if isinstance(value,Fraction):
                                 value = numeralValue(value)
                             print(prettyString(value))
@@ -108,7 +108,7 @@ def play(F):
     compile(F+'.led')
     DefinedFuns = Program.definedSymbols()
     #print('defined funs:', DefinedFuns)
-    print() 
+    print()
     try:
         # initialize the initial state in LED program memory
         initBody = Program.body('initialState',0)
@@ -160,14 +160,14 @@ def play(F):
         #    return
         # Go ahead and update the screen with what we've drawn.
         # This MUST happen after all the other drawing commands.
-        
+
         # reset the dictionary if it reaches some limit to prevent memory leak
         if dictionary.length()>1000000:
             dictionary.clear()
         if dictionary.length()==0:
             print("Clear the dictionary.")
         pygame.display.flip()
- 
+
 # Be IDLE friendly
     pygame.quit()
 
@@ -176,9 +176,9 @@ def drawSreeen(screen,inputAST):
     currentStateAST = Program.body('GAMMA',0)[1]
     #print out the first element in the state
     #print(prettyString(val(currentStateAST.expression())[1][0]))
-    # update the state 
+    # update the state
     #start_time = timeit.default_timer()
-    
+
     transition = val(AST('transition',[inputAST,currentStateAST]).expression())
     if transition==None:
         print('transition is not defined in your LED program')
