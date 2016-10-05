@@ -105,7 +105,7 @@ def play(F):
     pygame.display.set_caption("My Game")
 
     # compile LED program
-    compile(F+'.led')
+    compile(F)
     DefinedFuns = Program.definedSymbols()
     #print('defined funs:', DefinedFuns)
     print()
